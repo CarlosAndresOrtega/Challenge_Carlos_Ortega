@@ -17,6 +17,7 @@ function TasksForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addTask({ ...Task, id: uuid() }))
+    document.getElementById("myform").reset();
   };
   const handleChange = (e) => {
     setTask({
@@ -27,7 +28,7 @@ function TasksForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="bg-zinc-800 w-4/6 p-4">
+      <form id={"myform"} onSubmit={handleSubmit} className="bg-zinc-800 w-4/6 p-4">
         <label htmlFor="title" className="block text-xs font-bold mb-2">
           Tarea:{" "}
         </label>

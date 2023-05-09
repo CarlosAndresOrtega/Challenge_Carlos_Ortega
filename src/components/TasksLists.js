@@ -1,18 +1,44 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteTask } from '../features/tasks/taskSlice'
+import React, { useState } from "react";
+import {useSelector } from "react-redux";
+import Modal from "./Modal";
 
 function TasksLists() {
   const taskState = useSelector((state) => state.tasks);
 
-  const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [id, setId] = useState("");
 
-    const handleDelete = (id) => {
-        dispatch(deleteTask(id));
-    }
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleDelete = (id) => {
+    openModal();
+    setId(id)
+  };
 
   return (
     <>
+      <Modal id={id} isOpen={isOpen} onClose={closeModal}>
+        <div className="sm:flex sm:items-start">
+          <div className="mt-3 text-center sm:mt-0 sm:text-left">
+            <h3 className="text-lg leading-6 font-medium text-gray-900">
+              Confirmación
+            </h3>
+            <div className="mt-2">
+              <p className="text-sm text-gray-500">
+                ¿Esta seguro de eliminar esta tarea?
+              </p>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
       <div className="w-4/6">
         <div className="grid grid-cols-3 gap-4 max-sm:grid-cols-1">
           {taskState.map((task) => {
