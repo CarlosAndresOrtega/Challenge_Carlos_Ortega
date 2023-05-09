@@ -1,9 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTask } from '../features/tasks/taskSlice'
 
 function TasksLists() {
   const taskState = useSelector((state) => state.tasks);
+
+  const dispatch = useDispatch();
+
+    const handleDelete = (id) => {
+        dispatch(deleteTask(id));
+    }
 
   return (
     <>
@@ -26,7 +32,10 @@ function TasksLists() {
                         >
                           Edit
                         </button>
-                        <button className="bg-red-500 px-2 py-1 text-xs rounded-md">
+                        <button
+                          className="bg-red-500 px-2 py-1 text-xs rounded-md"
+                          onClick={() => handleDelete(task.id)}
+                        >
                           Delete
                         </button>
                       </div>
