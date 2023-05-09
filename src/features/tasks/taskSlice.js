@@ -22,9 +22,9 @@ export const taskSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
+    addTask:(state, action)=>{
+      state.push(action.payload)
+  },
     decrement: (state) => {
       state.value -= 1;
     },
@@ -33,5 +33,5 @@ export const taskSlice = createSlice({
     },
   },
 });
-
+export const { addTask } = taskSlice.actions;
 export default taskSlice.reducer;
