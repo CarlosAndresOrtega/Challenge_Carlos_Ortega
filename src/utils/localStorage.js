@@ -3,7 +3,5 @@ export const getItem=(key)=>{
 }
 
 export const setItem=(key, data)=>{
-    console.log(data)
-    console.log(key)
     return localStorage.setItem(key, JSON.stringify(data))
 }
