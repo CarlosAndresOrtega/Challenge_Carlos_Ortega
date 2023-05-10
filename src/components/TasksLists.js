@@ -6,31 +6,89 @@ import { updateState } from "../features/tasks/taskSlice";
 import Search from "./Search";
 import Header from "./Header";
 
+/**
+ *
+ * @returns Componente que retorna el listado de las tareas en la pagina principal
+ */
+
 function TasksLists() {
+  /**
+   * Variable que obtiene las tareas desde redux
+   * @type {Array}
+   */
   const taskState = useSelector((state) => state.tasks);
+
+  /**
+   * Estado que guarda y actualiza las tareas filtradas
+   * @hook
+   * @name useState
+   * @function
+   *
+   * @param {Array} taskState- El valor inicial.
+   * @returns {Array}
+   */
   const [fileredTasks, setfileredTasks] = useState(taskState);
 
+  /**
+   * Estado que observa si el modal para confirmar la eliminación de tareas esta abierto o cerrado
+   * @hook
+   * @name useState
+   * @function
+   *
+   * @param {boolean} 
+   * @returns {boolean}
+   */
   const [isOpen, setIsOpen] = useState(false);
+
+  /**
+   * Estado guarda el id de la tarea a modificar
+   * @hook
+   * @name useState
+   * @function
+   *
+   * @param {string} 
+   * @returns {string}
+   */
   const [id, setId] = useState("");
 
   const dispatch = useDispatch();
+
+  /**
+   * Funcion que activa el modal
+   */
 
   const openModal = () => {
     setIsOpen(true);
   };
 
+  /**
+   * Funcion que cierra el modal, cuando se hace click en el boton cerrar o se elimino la tarea
+   */
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  /**
+   * Funcion que activa el modal, cuando se hace click en el boton borrar
+   * @param {String} id id de la tarea a eliminar
+   */
 
   const handleDelete = (id) => {
     openModal();
     setId(id);
   };
 
+  /**
+   * Si alguno de las tareas fue modifica a traves de la busqueda, actualiza el arreglo de filtrados
+   */
   useEffect(() => {
     setfileredTasks(taskState);
   }, [taskState]);
+
+  /**
+   * Modifica el estado de la tarea entre pendiente o finalizada
+   * @param {event} event Evento que contiene la información de la tarea a modificar
+   */
 
   const handleCheckboxChange = (event) => {
     if (event.target.checked) {
@@ -39,7 +97,6 @@ function TasksLists() {
       dispatch(updateState({ id: event.target.id, state: "pendiente" }));
     }
   };
-
 
   return (
     <>
@@ -89,7 +146,7 @@ function TasksLists() {
                         className="bg-zinc-500 font-medium px-2 py-1 tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"
                         to={`/edit-task/${task.id}`}
                       >
-                        <Link to={`/edit-task/${task.id}`}>Editar</Link> 
+                        <Link to={`/edit-task/${task.id}`}>Editar</Link>
                       </button>
                       <button
                         className="bg-red-500 font-medium px-2 py-1  tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"

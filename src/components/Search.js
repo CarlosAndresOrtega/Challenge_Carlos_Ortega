@@ -2,10 +2,37 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 function Search({ setfiltered }) {
+  /**
+   * Variable que obtiene las tareas desde redux
+   * @type {Array}
+   */
   const tasks = useSelector((state) => state.tasks);
+
+  /**
+   * Hook que permite saber que tipo de busqueda fue seleccionado
+   * @hook
+   * @name useRef
+   * @function
+   *
+   * @returns {HTMLElement}
+   */
   const refSelect = useRef();
+
+  /**
+   * Hook que permite saber que tipo de busqueda se realizara
+   * @hook
+   * @name useState
+   * @function
+   *
+   * @param {string} - la busqueda por defecto es titulo
+   * @returns {HTMLElement}
+   */
   const [typeSearch, setTypeSearch] = useState("title");
 
+  /**
+   * Funcion que realiza las bsuquedas por titulo, categoria o estado.
+   * @param {Event} e elemento que contiene el valor a buscar
+   */
   const handleChange = (e) => {
     const searchOptions = {
       title: "title",
@@ -25,6 +52,9 @@ function Search({ setfiltered }) {
     setfiltered(filter);
   };
 
+  /**
+   * Funcion que observa culaquier cambio en el elemento selection, para cambiar la busqueda
+   */
   useEffect(() => {
     const searchTypeSelect = refSelect.current;
 

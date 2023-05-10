@@ -3,8 +3,15 @@ import { useDispatch } from "react-redux";
 import { deleteTask } from "../features/tasks/taskSlice";
 
 function Modal({ id, isOpen, onClose, children }) {
+
+  /**
+   * Funcion que permite modificar las tareas en el state management
+   */
   const dispatch = useDispatch();
 
+  /**
+   * Funcion que elimina una tarea cuando, ya se confirmo que se desea eliminar
+   */
   const handleDelete = () => {
     dispatch(deleteTask(id));
     onClose();

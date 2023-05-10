@@ -7,8 +7,15 @@ import TasksForm from "./components/TasksForm";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
+  /**
+   * Variable que obtiene las tareas desde redux
+   * @type {Array}
+   */
   const taskState = useSelector((state) => state.tasks);
 
+  /**
+   * Funcion que actualiza las tareas en el localStorage
+   */
   useEffect(() => {
     setItem("tasks", taskState);
   }, [taskState]);
