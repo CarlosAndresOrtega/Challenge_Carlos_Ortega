@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className="bg-zinc-900 h-screen text-white">
-        <div className="flex flex-col gap-y-5 items-center justify-center h-full">
+        <div className="flex flex-col gap-y-5 items-center justify-start p-5 h-full">
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<TasksLists />} />
