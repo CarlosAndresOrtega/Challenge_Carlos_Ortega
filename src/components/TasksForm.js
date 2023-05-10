@@ -57,7 +57,7 @@ function TasksForm() {
         onSubmit={handleSubmit}
         className="bg-zinc-800 w-4/6 p-4"
       >
-        <label htmlFor="title" className="block text-xs font-bold mb-2">
+        <label htmlFor="title" className="block text-[#F2ECE7] font-[15px] text-justify mb-2">
           Tarea:{" "}
         </label>
         <input
@@ -65,12 +65,12 @@ function TasksForm() {
           name="title"
           value={Task.title}
           placeholder="title"
-          className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+          className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
         />
 
-        <label htmlFor="category" className="block text-xs font-bold mb-2">
+        <label htmlFor="category" className="block text-[#F2ECE7] font-[15px] text-justify mb-2">
           Categoria:{" "}
         </label>
         <input
@@ -78,27 +78,27 @@ function TasksForm() {
           name="category"
           value={Task.category}
           placeholder="category"
-          className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+          className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
         />
 
-        <label htmlFor="description" className="block text-xs font-bold mb-2">
+        <label htmlFor="description" className="block text-[#F2ECE7] font-[15px] text-justify mb-2">
           Descripcion:
         </label>
         <textarea
           name="description"
           value={Task.description}
           placeholder="description"
-          className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+          className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
         ></textarea>
 
         <div className="flex gap-x-2 items-center mb-2">
-          <label className="block text-xs font-bold ">Estado: </label>
+          <label className="block text-[#F2ECE7] font-[15px] text-justify ">Estado: </label>
 
-          <label className="block text-xs font-bold">Pendiente: </label>
+          <label className="block text-[#F2ECE7] font-[15px] text-justify">Pendiente: </label>
           <input
             id={"pendiente"}
             type="radio"
@@ -108,7 +108,7 @@ function TasksForm() {
             onChange={handleChange}
           />
 
-          <label className="block text-xs font-bold ">Fianlizada: </label>
+          <label className="block text-[#F2ECE7] font-[15px] text-justify ">Fianlizada: </label>
           <input
             id={"finalizada"}
             type="radio"
@@ -119,10 +119,10 @@ function TasksForm() {
         </div>
 
         <div className="flex gap-x-5">
-          <button className="bg-indigo-600 px-2 py-1">Guardar</button>
-          <button className="bg-indigo-600 px-2 py-1">
+          <button  className="bg-indigo-500 font-medium px-2 py-1  tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">Guardar</button>
+          <div className="bg-indigo-500 font-medium px-2 py-1  tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
             <Link to="/">Atras</Link>
-          </button>
+          </div>
         </div>
       </form>
     </>

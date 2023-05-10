@@ -89,7 +89,7 @@ function TasksLists() {
                         className="bg-zinc-500 font-medium px-2 py-1 tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"
                         to={`/edit-task/${task.id}`}
                       >
-                        <Link to={`/edit-task/${task.id}`}>Edit</Link>
+                        <Link to={`/edit-task/${task.id}`}>Edit</Link> 
                       </button>
                       <button
                         className="bg-red-500 font-medium px-2 py-1  tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"
