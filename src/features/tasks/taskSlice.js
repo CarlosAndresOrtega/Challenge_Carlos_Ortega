@@ -4,18 +4,25 @@ import { getItem } from "../../utils/localStorage";
 const initialState = getItem("tasks") || [
   {
     id: "c0d3978a-ee7f-11ed-a05b-0242ac120003",
-    title: "Task 1",
+    title: "Entrenar en la noche",
     category: "deportes",
-    description: "Task 1 description",
+    description: "Ir a entrenar futbol en la noche con el equipo",
     state: "pendiente",
   },
   {
     id: "c906c7e2-ee7f-11ed-a05b-0242ac120003",
-    title: "Task 2",
+    title: "Pedir cita medica",
     category: "salud",
-    description: "Task 2 description",
-    state: "finalizado",
+    description: "Pedir cita con el endocrino, para control",
+    state: "finalizada",
   },
+  {
+    id:"0ecfa278-ef5a-11ed-a05b-0242ac120003",
+    title: "Completar pull request",
+    category: "trabajo",
+    description: "Subir al repositorio las diferentes tareas que tengo",
+    state: "finalizada",
+  }
 ];
 
 export const taskSlice = createSlice({

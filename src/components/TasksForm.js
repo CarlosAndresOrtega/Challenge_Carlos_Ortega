@@ -55,7 +55,7 @@ function TasksForm() {
       <form
         id={"myform"}
         onSubmit={handleSubmit}
-        className="bg-zinc-800 w-4/6 p-4"
+        className="bg-zinc-800 w-4/6 p-4 max-md:w-full"
       >
         <label htmlFor="title" className="block text-[#F2ECE7] font-[15px] text-justify mb-2">
           Tarea:{" "}
@@ -64,7 +64,7 @@ function TasksForm() {
           type="text"
           name="title"
           value={Task.title}
-          placeholder="title"
+          placeholder="Título"
           className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
@@ -77,19 +77,19 @@ function TasksForm() {
           type="text"
           name="category"
           value={Task.category}
-          placeholder="category"
+          placeholder="Categoria"
           className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
         />
 
         <label htmlFor="description" className="block text-[#F2ECE7] font-[15px] text-justify mb-2">
-          Descripcion:
+          Descripción:
         </label>
         <textarea
           name="description"
           value={Task.description}
-          placeholder="description"
+          placeholder="Descripción"
           className="w-full bg-neutral-600 text-[#F2ECE7] font-[15px] flex justify-between items-center p-4 rounded-md"
           onChange={handleChange}
           required
@@ -97,7 +97,7 @@ function TasksForm() {
 
         <div className="flex gap-x-2 items-center mb-2">
           <label className="block text-[#F2ECE7] font-[15px] text-justify ">Estado: </label>
-
+          
           <label className="block text-[#F2ECE7] font-[15px] text-justify">Pendiente: </label>
           <input
             id={"pendiente"}
@@ -108,7 +108,7 @@ function TasksForm() {
             onChange={handleChange}
           />
 
-          <label className="block text-[#F2ECE7] font-[15px] text-justify ">Fianlizada: </label>
+          <label className="block text-[#F2ECE7] font-[15px] text-justify ">Finalizada: </label>
           <input
             id={"finalizada"}
             type="radio"

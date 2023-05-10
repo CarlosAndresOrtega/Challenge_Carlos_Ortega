@@ -60,7 +60,7 @@ function Search({ setfiltered }) {
           className="bg-neutral-700 border border-gray-300 text-white text-sm rounded-lg
            focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700
             dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
-            dark:focus:border-blue-500"
+            dark:focus:border-blue-500 max-md:w-2/6"
         >
           <option value="title">Título</option>
           <option value="category">Categoria</option>
